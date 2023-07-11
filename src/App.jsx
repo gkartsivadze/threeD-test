@@ -1,24 +1,8 @@
-import { useRef, useLayoutEffect } from 'react';
-import { gsap } from "gsap-trial";
-import ScrollTrigger from "gsap-trial/ScrollTrigger";
-import ScrollSmoother from "gsap-trial/ScrollSmoother";
+import { useLayoutEffect } from 'react';
+import { gsap } from 'gsap';
 import './App.css'
 
 function App() {
-
-  const el = useRef();
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-  useLayoutEffect(() => {
-    let smoother = ScrollSmoother.create({
-      content: el.current,
-      smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-      effects: true // looks for data-speed and data-lag attributes on elements
-    });
-    return () => {
-      smoother.kill();
-    };
-  }, []);
 
 
   useLayoutEffect(() => {
@@ -28,9 +12,7 @@ function App() {
       let scrollProgress = parseInt(scrollTop - window.innerHeight) / (document.documentElement.scrollHeight - 2 * window.innerHeight);
 
 
-      gsap.to("#carousel", {'--carouselZ': scrollProgress * 10 + "deg",
-                            '--top': scrollTop > window.innerHeight ? scrollProgress * 300 + "vh" : "0vh"
-                          })
+      gsap.to("#carousel", {'--carouselZ': scrollProgress * 10 + "deg"})
 
 
       const cards = gsap.utils.toArray("#carousel .project_container");
@@ -54,7 +36,7 @@ function App() {
         <a href="#">Contact</a>
       </div>
     </nav>
-    <main ref={el}>
+    <main>
     <section id='welcome_section'>
       <h1>WELCOME</h1>
       <p>Pasionate front-end developer, newbie in profession,

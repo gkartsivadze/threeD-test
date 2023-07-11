@@ -82,6 +82,8 @@ nav #logo {
 }
 
 #carousel {
+  position: sticky;
+  top: 0;
   display: flex;
   height: 100vh;
   transform-style: preserve-3d;
