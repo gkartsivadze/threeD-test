@@ -1,6 +1,7 @@
 import { useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import './App.css'
+import Welcome from './components/Welcome';
 
 function App() {
 
@@ -28,21 +29,8 @@ function App() {
   }, [])
   return (
     <>
-    <nav>
-      <h1 id="logo">GIORGI KARTSIVADZE</h1>
-      <div className='navigation'>
-        <a href="#">About</a>
-        <a href="#">Projects</a>
-        <a href="#">Contact</a>
-      </div>
-    </nav>
     <main>
-    <section id='welcome_section'>
-      <h1>WELCOME</h1>
-      <p>Pasionate front-end developer, newbie in profession,
-        but master in progression</p>
-
-    </section>
+    <Welcome />
     <section id="carousel_container">
       <div id="carousel">
           <div className='project_container'>

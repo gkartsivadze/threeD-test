@@ -1,9 +1,8 @@
 :root {
-    --dark-blue: #012340;
-    --green-blue: #025959;
-    --dark-green: #025959;
-    --darker-green: #03A63C;
-    --green: #04D939;
+    --black: #262626;
+    --white: #F2F2F2;
+    --dark-green: #027333;
+    --green: #16F275;
 
 
 
@@ -14,8 +13,7 @@
 
     color-scheme: light dark;
     color: var(--green);
-    background: radial-gradient(var(--dark-green), transparent),
-                      var(--dark-blue);
+    background: radial-gradient(80vw 300vh at 50% 300vh, var(--dark-green), 70%, black);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -38,46 +36,51 @@ a {
     text-decoration: none;
     padding: 0.5rem 1rem;
     &:hover {
-        background-color: var(--darker-green);
-    }
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0; right: 0;
-    height: 3rem;
-    padding-inline: 5rem;
-    
-    background: var(--green);
-    color: var(--dark-blue);
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    z-index: 10;
-    #logo {
-        color: var(--dark-blue);
-        user-select: none;
+        background-color: var(--dark-green);
     }
 }
 
 #welcome_section {
     height: 100vh;
     padding: 5rem;
-    h1 {
-        padding: 0.5rem 2rem;
-        color: var(--green);
-        border: 1px solid var(--green);
 
-        text-align: center;
+    display: grid;
+    grid-template-columns: 30rem 1fr 10rem;
+    grid-template-rows: 1fr 1fr 2fr;
+    gap: 3rem;
+
+    .hero_div {
+        width: max-content;
+        h1 {
+            background-color: var(--green);
+            color: var(--black);
+            font-size: 3rem;
+            padding: 1rem;
+            line-height: 3rem;
+        }
+        h2 {
+            text-align: right;
+        }
     }
     p {
-        margin-top: 3rem;
-        width: fit-content;
-        padding: 0.5rem 2rem;
-        border: 1px solid var(--dark-green)
+        font-size: 1.5rem;
+
+        padding: 2rem;
+        border: 1px solid var(--dark-green);
+
+        grid-row: 3 / 4;
+        grid-column: 1 / 3;
+    }
+    #skills_carousel {
+        grid-row: 1 / 4;
+        grid-column: 3 / 4;
+        background: white;
+        position: relative;
+        svg {
+            position: absolute;
+            height: 10%;
+
+        }
     }
 }
 
