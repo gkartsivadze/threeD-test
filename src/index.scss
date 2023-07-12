@@ -152,12 +152,22 @@ a {
         width: 10rem;
         height: 10rem;
         border-radius: 50%;
-        background: url(./earth.svg) var(--green);
+        background: radial-gradient(2rem at var(--splash-light-x, 60%) var(--splash-light-y, 20%), var(--white), transparent),url(./earth.svg) var(--green);
         background-size: cover;
 
         transform: translateY(var(--light-transform, 0px));
 
         animation: glowing 5s ease-out infinite;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background: radial-gradient(transparent, rgba(255, 255, 255, 1));
+            border-radius: 50%;
+
+            z-index: 1;
+        }
     }
 }
 

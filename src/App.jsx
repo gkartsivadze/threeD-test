@@ -19,10 +19,15 @@ function App() {
       const cards = gsap.utils.toArray("#carousel .project_container");
       cards.forEach((elem, ind) => {
         let newRotation = ind / cards.length * 360 - scrollProgress * 360;
-        gsap.to(elem, {'--cards-rotation': `${newRotation}deg`, duration: 0.25})
+        gsap.to(elem, {'--cards-rotation': `${newRotation}deg`,
+                        duration: 0.25})
       })
 
-      gsap.to(".light_through", {'--light-transform': 200 - scrollProgress * 100 + "%",duration: 1})
+      gsap.to(".light_through", {'--light-transform': 200 - scrollProgress * 100 + "%",
+                                duration: 1,
+                                '--splash-light-x': 60 - 40 * scrollProgress + "%",
+                                '--splash-light-y': 20 * Math.abs(scrollProgress - 0.5) + "%"
+                              })
     }
     document.addEventListener("scroll", handleScroll)
     return () => document.removeEventListener("mousemove", handleScroll)
