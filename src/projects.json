@@ -1,0 +1,46 @@
+{
+    "projects": [
+        {
+            "name": "Artopia",
+            "liveUrl": "https://",
+            "repoUrl": "https://",
+            "imgUrl" : "./artopia.webp"
+        },
+        {
+            "name": "Product Page",
+            "liveUrl": "https://",
+            "repoUrl": "https://",
+            "imgUrl" : "./ecommerce.webp"
+        },
+        {
+            "name": "Financial",
+            "liveUrl": "https://",
+            "repoUrl": "https://",
+            "imgUrl" : "./financial.webp"
+        },
+        {
+            "name": "Multi Step Form",
+            "liveUrl": "https://",
+            "repoUrl": "https://",
+            "imgUrl" : "./form.webp"
+        },
+        {
+            "name": "Food Receipt App",
+            "liveUrl": "https://",
+            "repoUrl": "https://",
+            "imgUrl" : "./receptionera.webp"
+        },
+        {
+            "name": "URL Shortener",
+            "liveUrl": "https://",
+            "repoUrl": "https://",
+            "imgUrl" : "./shortener.webp"
+        },
+        {
+            "name": "Tic-Tac-Toe",
+            "liveUrl": "https://",
+            "repoUrl": "https://",
+            "imgUrl" : "./tictac.webp"
+        }
+    ]
+}

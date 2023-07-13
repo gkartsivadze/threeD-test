@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import './App.css'
 import Welcome from './components/Welcome';
 import Form from './components/Form';
+import { projects } from './projects.json';
+import Project from './components/Project';
 
 function App() {
   
@@ -52,27 +54,13 @@ function App() {
       <Welcome />
       <section id="carousel_container">
         <div id="carousel">
-          <div className='project_container'>
-            <img src="./artopia.webp" alt="" />
-          </div>
-          <div className='project_container'>
-            <img src="./ecommerce.webp" alt="" />
-          </div>
-          <div className='project_container'>
-            <img src="./financial.webp" alt="" />
-          </div>
-          <div className='project_container'>
-            <img src="./form.webp" alt="" />
-          </div>
-          <div className='project_container'>
-            <img src="./receptionera.webp" alt="" />
-          </div>
-          <div className='project_container'>
-            <img src="./shortener.webp" alt="" />
-          </div>
-          <div className='project_container'>
-            <img src="./tictac.webp" alt="" />
-          </div>
+          {
+            projects.map(elem => {
+              return (
+                <Project imageUrl={elem.imgUrl} />
+              )
+            })
+          }
           <span className='light_through'></span>
         </div>
       </section>

@@ -14,7 +14,7 @@
     color-scheme: light dark;
     color: var(--green);
     background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, transparent),
-                linear-gradient(black, 20%, transparent, 80%, black),
+                linear-gradient(black, 30%, transparent, 70%, black),
                 url(../public/stars-back.jpg);
     background-size: contain;
 
@@ -219,14 +219,14 @@ a {
 
 @keyframes glowing {
     0% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
-    10% {box-shadow: 0 0 2rem rgb(183, 183, 183)}
-    20% {box-shadow: 0 0 1rem rgb(216, 216, 216)}
-    30% {box-shadow: 0 0 2rem rgb(183, 183, 183)}
+    10% {box-shadow: 0 0 2.5rem rgb(183, 183, 183)}
+    20% {box-shadow: 0 0 2rem rgb(216, 216, 216)}
+    30% {box-shadow: 0 0 2.5rem rgb(183, 183, 183)}
     40% {box-shadow: 0 0 3rem rgb(232, 232, 232)}
-    50% {box-shadow: 0 0 2rem rgb(200, 200, 200)}
+    50% {box-shadow: 0 0 2.5rem rgb(200, 200, 200)}
     60% {box-shadow: 0 0 3rem rgb(183, 183, 183)}
-    70% {box-shadow: 0 0 2rem rgb(224, 224, 224)}
-    80% {box-shadow: 0 0 1rem rgb(183, 183, 183)}
-    90% {box-shadow: 0 0 2rem rgb(211, 211, 211)}
+    70% {box-shadow: 0 0 2.5rem rgb(224, 224, 224)}
+    80% {box-shadow: 0 0 2rem rgb(183, 183, 183)}
+    90% {box-shadow: 0 0 2.5rem rgb(211, 211, 211)}
     100% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
 }
