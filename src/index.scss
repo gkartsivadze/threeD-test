@@ -15,8 +15,8 @@
     color: var(--green);
     background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, transparent),
                 linear-gradient(black, 30%, transparent, 70%, black),
-                url(../public/stars-back.jpg);
-    background-size: contain;
+                url(../public/stars-back.jpg) center var(--background-top-position, 0) fixed;
+    background-color: cover;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -170,7 +170,10 @@ a {
 
         transform: translateY(var(--light-transform, 0px)) rotateZ(var(--light-rotate, 0deg));
 
-        animation: glowing 3s ease-out infinite;
+        animation: glowing 5s ease-out infinite;
+        &:hover {
+            animation-duration: 2s;
+        }
         &::after {
             content: "";
             position: absolute;

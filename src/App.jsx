@@ -44,7 +44,12 @@ function App() {
             '--splash-light-x': 60 - 40 * scrollProgress + "%",
             '--splash-light-y': 20 * Math.abs(scrollProgress - 0.5) + "%",
           })
+          gsap.to(":root", {
+            '--background-top-position': scrollProgress > 0.1 ? 10 * (scrollProgress - 0.1) + "%" : 0
+          })
     }
+
+
     document.addEventListener("scroll", handleScroll)
     return () => document.removeEventListener("mousemove", handleScroll)
   }, [])
@@ -57,7 +62,7 @@ function App() {
           {
             projects.map(elem => {
               return (
-                <Project imageUrl={elem.imgUrl} />
+                <Project imageUrl={elem.imgUrl} key={elem.id} />
               )
             })
           }
