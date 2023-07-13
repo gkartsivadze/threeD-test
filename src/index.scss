@@ -1,8 +1,8 @@
 :root {
     --black: #262626;
     --white: #F2F2F2;
-    --dark-green: #027333;
-    --green: #16F275;
+    --dark-green: grey;
+    --green: white;
 
 
 
@@ -13,7 +13,10 @@
 
     color-scheme: light dark;
     color: var(--green);
-    background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, black);
+    background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, transparent),
+                linear-gradient(black, 20%, transparent, 80%, black),
+                url(../public/stars-back.jpg);
+    background-size: contain;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -54,9 +57,17 @@ a {
         h1 {
             background-color: var(--green);
             color: var(--black);
-            font-size: 3rem;
-            padding: 1rem;
+            font-size: 4rem;
+            padding: 1.5rem;
             line-height: 3rem;
+            outline: 0.3rem solid var(--black);
+            outline-offset: -1rem;
+
+            transition: outline 0.3s, outline-offset 0.3s;
+            &:hover {
+                outline-offset: 2rem;
+                outline-color: var(--green);
+            }
         }
         h2 {
             text-align: right;
@@ -68,12 +79,15 @@ a {
 
         padding: 2rem;
         border: 1px solid var(--dark-green);
+        background-color: var(--black);
 
         grid-row: 3 / 4;
         grid-column: 1 / 3;
 
         align-self: flex-end;
         text-align: center;
+
+        z-index: 1;
     }
 }
 
@@ -88,7 +102,6 @@ a {
     svg {
         position: absolute;
         height: 10%;
-
     }
 }
 
@@ -155,9 +168,9 @@ a {
         background: radial-gradient(2rem at var(--splash-light-x, 60%) var(--splash-light-y, 20%), var(--white), transparent),url(./earth.svg) var(--green);
         background-size: cover;
 
-        transform: translateY(var(--light-transform, 0px));
+        transform: translateY(var(--light-transform, 0px)) rotateZ(var(--light-rotate, 0deg));
 
-        animation: glowing 5s ease-out infinite;
+        animation: glowing 3s ease-out infinite;
         &::after {
             content: "";
             position: absolute;
@@ -171,15 +184,49 @@ a {
     }
 }
 
+#contact_form {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    h1 {
+        background-color: var(--green);
+        color: var(--black);
+        padding: 0.5rem 3rem;
+    }
+    form {
+        display: grid;
+        gap: 2rem;
+        & > * {
+            font-size: 1.75rem;
+            padding: 0.5rem;
+            background-color: var(--black);
+            color: var(--white);
+            outline: none;
+            border: none;
+        }
+        input[type="email"] {
+            grid-column: 2 / 3;
+        }
+        textarea {
+            grid-column: 1 / 3;
+            resize: vertical;
+        }
+    }
+}
+
 @keyframes glowing {
-    10% {box-shadow: 0 0 3rem #04D939}
-    20% {box-shadow: 0 0 1rem #90ffab }
-    30% {box-shadow: 0 0 2rem #c0ffd0 }
-    40% {box-shadow: 0 0 1rem #ccffd9 }
-    50% {box-shadow: 0 0 1rem #8ccb9c }
-    60% {box-shadow: 0 0 2rem #8dffaa }
-    70% {box-shadow: 0 0 1rem #00ff40 }
-    80% {box-shadow: 0 0 3rem #04D939 }
-    90% {box-shadow: 0 0 1rem #64f589 }
-    100% {box-shadow: 0 0 3rem #04D939 }
+    0% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
+    10% {box-shadow: 0 0 2rem rgb(183, 183, 183)}
+    20% {box-shadow: 0 0 1rem rgb(216, 216, 216)}
+    30% {box-shadow: 0 0 2rem rgb(183, 183, 183)}
+    40% {box-shadow: 0 0 3rem rgb(232, 232, 232)}
+    50% {box-shadow: 0 0 2rem rgb(200, 200, 200)}
+    60% {box-shadow: 0 0 3rem rgb(183, 183, 183)}
+    70% {box-shadow: 0 0 2rem rgb(224, 224, 224)}
+    80% {box-shadow: 0 0 1rem rgb(183, 183, 183)}
+    90% {box-shadow: 0 0 2rem rgb(211, 211, 211)}
+    100% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
 }
