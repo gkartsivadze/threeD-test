@@ -15,7 +15,7 @@
     color: var(--green);
     background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, transparent),
                 linear-gradient(black, 30%, transparent, 70%, black),
-                url(../public/stars-back.jpg) center var(--background-top-position, 0) fixed;
+                url(./stars-back.jpg) center var(--background-top-position, 0) fixed;
     background-color: cover;
 
     font-synthesis: none;
