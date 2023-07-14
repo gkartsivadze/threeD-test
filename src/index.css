@@ -3,6 +3,8 @@
   --darken-white: #F2F2F2;
   --grey: grey;
   --white: white;
+  width: 100vw;
+  overflow-x: hidden;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -56,7 +58,7 @@ a {
 }
 
 #welcome_section {
-  height: clamp(50rem, 100vh, 100rem);
+  height: clamp(25rem, 100vh, 100rem);
   padding: 5rem;
   display: grid;
   grid-template-columns: max-content 1fr 10rem;
@@ -406,5 +408,22 @@ a {
     width: 7rem;
     height: 7rem;
     padding: 1.5rem;
+  }
+}
+@media (max-height: 700px) {
+  :root {
+    font-size: 12px !important;
+  }
+  #welcome_section {
+    padding: 2rem !important;
+  }
+  #welcome_section .hero_div {
+    grid-column: 1/2 !important;
+  }
+  #welcome_section p {
+    grid-column: 1/2 !important;
+  }
+  #welcome_section #skills_carousel {
+    grid-row: 1/4 !important;
   }
 }/*# sourceMappingURL=index.css.map */
