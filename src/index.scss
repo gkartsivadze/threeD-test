@@ -129,8 +129,9 @@ a {
     box-shadow: inset 0 0 1rem var(--black);
     overflow: hidden;
     svg {
+        padding: 2rem;
         position: absolute;
-        height: 10%;
+        height: 10rem;
     }
 }
 
@@ -381,7 +382,7 @@ a {
 
 @media (max-width: 1150px) {
     #welcome_section {
-        grid-template-columns: 1fr 8rem;
+        grid-template-columns: 1fr 20%;
         gap: 2rem;
         .hero_div {
             grid-column: 1 / 3;
@@ -402,11 +403,15 @@ a {
 
 @media (max-width: 900px) {
     #welcome_section {
-        grid-template-columns: 1fr 8rem;
+        grid-template-columns: 1fr 15rem;
         gap: 2rem;
+        padding: 5rem 2rem;
         .hero_div {
             h1 {
-                font-size: 2.5rem;
+                width: 100%; /* Set the desired width for the <h1> element */
+                font-size: clamp(1rem, 7vw, 3rem);
+                white-space: nowrap; /* Prevent line breaks within the heading */
+                overflow: hidden; /* Hide any overflow text */
             }
             h2 {
                 font-size: 1rem;
@@ -416,17 +421,5 @@ a {
                 grid-row: 2 / 3
             }
         }
-    }
-}
-
-@media (max-width: 600px) {
-    :root {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 450px) {
-    :root {
-        font-size: 10px;
     }
 }
