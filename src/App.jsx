@@ -41,9 +41,7 @@ function App() {
           }
           :
           {
-            '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px",
-            '--splash-light-x': 60 - 40 * scrollProgress + "%",
-            '--splash-light-y': 20 * Math.abs(scrollProgress - 0.5) + "%",
+            '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px"
           })
       gsap.to(":root", 1 , {
         '--background-top-position': scrollTop > welcomeHeight ? 10 * scrollProgress + "%" : 0
@@ -67,7 +65,7 @@ function App() {
               )
             })
           }
-          <span className='light_through'></span>
+          <span className='light_through moon_mode'></span>
         </div>
       </section>
       <Form />
