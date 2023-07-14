@@ -23,10 +23,10 @@ function App() {
       // Positioning and animating each card of project
       const cards = gsap.utils.toArray("#carousel .project_container");
       cards.forEach((elem, ind) => {
-        let newRotation = ind / cards.length * 360 - scrollProgress * 360;
+        let newRotation = ind / cards.length * 360 - scrollProgress * 405;
         gsap.to(elem, {
           '--cards-rotation': `${newRotation}deg`,
-          duration: 0.25
+          duration: 1
         })
       })
 
@@ -45,7 +45,7 @@ function App() {
             '--splash-light-x': 60 - 40 * scrollProgress + "%",
             '--splash-light-y': 20 * Math.abs(scrollProgress - 0.5) + "%",
           })
-      gsap.to(":root", 0 , {
+      gsap.to(":root", 1 , {
         '--background-top-position': scrollTop > welcomeHeight ? 10 * scrollProgress + "%" : 0
       })
     }
@@ -63,7 +63,7 @@ function App() {
           {
             projects.map(elem => {
               return (
-                <Project imageUrl={elem.imgUrl} liveUrl={elem.liveUrl} repoUrl={elem.repoUrl} key={elem.id} />
+                <Project imageUrl={elem.imgUrl} liveUrl={elem.liveUrl} repoUrl={elem.repoUrl} projectClass={elem.className} key={elem.id} />
               )
             })
           }

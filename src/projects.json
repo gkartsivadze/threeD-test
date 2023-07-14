@@ -5,63 +5,72 @@
             "name": "Furniture",
             "liveUrl": "https://furniture-rho.vercel.app/",
             "repoUrl": "https://github.com/gkartsivadze/furniture",
-            "imgUrl" : "./furniture.webp"
+            "imgUrl" : "./furniture.webp",
+            "className": "furniture_project"
         },
         {
             "id": 2,
             "name": "Artopia",
             "liveUrl": "https://artopia-react-git-main-gkartsivadze.vercel.app/",
             "repoUrl": "https://github.com/gkartsivadze/Artopia-React",
-            "imgUrl" : "./artopia.webp"
+            "imgUrl" : "./artopia.webp",
+            "className": "artopia_project"
         },
         {
             "id": 3,
             "name": "Space Tourism",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/space/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/space",
-            "imgUrl" : "./space_tourism.webp"
+            "imgUrl" : "./space_tourism.webp",
+            "className": "space_project"
         },
         {
             "id": 4,
             "name": "Financial",
             "liveUrl": "https://gkartsivadze.github.io/projects/financial/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/projects/financial",
-            "imgUrl" : "./financial.webp"
+            "imgUrl" : "./financial.webp",
+            "className": "financial_project"
         },
         {
             "id": 5,
             "name": "Product Page",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/commerce/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/commerce",
-            "imgUrl" : "./ecommerce.webp"
+            "imgUrl" : "./ecommerce.webp",
+            "className": "product_project"
         },
         {
             "id": 6,
             "name": "Multi Step Form",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/multi-step-form/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/multi-step-form",
-            "imgUrl" : "./form.webp"
+            "imgUrl" : "./form.webp",
+            "className": "form_project"
         },
         {
             "id": 7,
             "name": "Food Receipt App",
             "liveUrl": "https://food-recipe-react-sooty.vercel.app/",
             "repoUrl": "https://github.com/gkartsivadze/food-Recipe-react",
-            "imgUrl" : "./receptionera.webp"
+            "imgUrl" : "./receptionera.webp",
+            "className": "food_project"
         },
         {
             "id": 8,
             "name": "URL Shortener",
             "liveUrl": "https://gkartsivadze.github.io/frontendmentor/url-shortener/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/frontendmentor/url-shortener",
-            "imgUrl" : "./shortener.webp"
+            "imgUrl" : "./shortener.webp",
+            "className": "shortener_project"
         },
         {
             "id": 9,
             "name": "Tic-Tac-Toe",
             "liveUrl": "https://gkartsivadze.github.io/projects/tictac/",
             "repoUrl": "https://github.com/gkartsivadze/gkartsivadze.github.io/tree/main/projects/tictac",
-            "imgUrl" : "./tictac.webp"
+            "imgUrl" : "./tictac.webp",
+            "className": "tictac_project"
         }
     ]
 }

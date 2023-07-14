@@ -8,7 +8,7 @@
   font-weight: 400;
   color-scheme: light dark;
   color: var(--green);
-  background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, transparent), linear-gradient(black, 30%, transparent, 70%, black), url(./stars-back.jpg) center var(--background-top-position, 0) fixed;
+  background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.jpg) center var(--background-top-position, 0) fixed;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -101,6 +101,7 @@ a {
   transform: translateY(var(--top, 0vh)) perspective(1200px) rotateZ(var(--carouselZ, 0deg));
 }
 #carousel > .project_container {
+  --background-color: var(--green);
   position: absolute;
   top: 50%;
   transform-style: preserve-3d;
@@ -109,6 +110,33 @@ a {
 }
 #carousel > .project_container:hover .buttons_container {
   filter: opacity(1);
+}
+#carousel > .project_container.furniture_project:hover {
+  --background-color: grey;
+}
+#carousel > .project_container.artopia_project:hover {
+  --background-color: #c299ff;
+}
+#carousel > .project_container.financial_project:hover {
+  --background-color: rgb(53, 53, 206);
+}
+#carousel > .project_container.product_project:hover {
+  --background-color: rgb(255, 119, 0);
+}
+#carousel > .project_container.form_project:hover {
+  --background-color: mediumblue;
+}
+#carousel > .project_container.food_project:hover {
+  --background-color: greenyellow;
+}
+#carousel > .project_container.shortener_project:hover {
+  --background-color: cyan;
+}
+#carousel > .project_container.tictac_project:hover:has(a:nth-of-type(1):hover) {
+  --background-color: red;
+}
+#carousel > .project_container.tictac_project:hover:has(a:nth-of-type(2):hover) {
+  --background-color: blue;
 }
 #carousel > .project_container .buttons_container {
   position: absolute;
@@ -129,7 +157,7 @@ a {
   left: 50%;
   right: 50%;
   top: 0;
-  background-color: var(--black);
+  background-color: var(--background-color);
   height: 100%;
   transition: 0.3s;
 }
@@ -146,8 +174,9 @@ a {
   position: absolute;
   inset: 2rem 0;
   filter: blur(3rem);
-  background: var(--green);
+  background-color: var(--background-color);
   transform: translateZ(-0.1rem);
+  transition: background-color 0.3s;
 }
 #carousel > .project_container::before {
   content: "";
@@ -167,7 +196,7 @@ a {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  background: radial-gradient(2rem at var(--splash-light-x, 60%) var(--splash-light-y, 20%), var(--white), transparent), url(./earth.svg) var(--green);
+  background: radial-gradient(2rem at var(--splash-light-x, 60%) var(--splash-light-y, 20%), var(--white), transparent), url(../public/earth.svg) var(--green);
   background-size: cover;
   transform: translateY(var(--light-transform, 0px)) rotateZ(var(--light-rotate, 0deg));
   animation: glowing 5s ease-out infinite;
