@@ -9,7 +9,6 @@
   color-scheme: light dark;
   color: var(--green);
   background: radial-gradient(80vw 350vh at 50% 300vh, var(--dark-green), 70%, transparent), linear-gradient(black, 30%, transparent, 70%, black), url(./stars-back.jpg) center var(--background-top-position, 0) fixed;
-  background-color: cover;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -29,10 +28,6 @@
 a {
   color: currentColor;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-}
-a:hover {
-  background-color: var(--dark-green);
 }
 
 #welcome_section {
@@ -111,7 +106,40 @@ a:hover {
   transform-style: preserve-3d;
   height: 10rem;
   transform: translateX(-25%) translateY(-50%) rotateY(var(--cards-rotation, 0deg)) translateZ(35rem);
-  transition: scale 0.2s;
+}
+#carousel > .project_container:hover .buttons_container {
+  filter: opacity(1);
+}
+#carousel > .project_container .buttons_container {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  filter: opacity(0);
+  transition: filter 0.3s;
+}
+#carousel > .project_container .buttons_container:has(a:nth-of-type(1):hover) .horizontal_line {
+  left: 0;
+}
+#carousel > .project_container .buttons_container:has(a:nth-of-type(2):hover) .horizontal_line {
+  right: 0;
+}
+#carousel > .project_container .buttons_container .horizontal_line {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 0;
+  background-color: var(--black);
+  height: 100%;
+  transition: 0.3s;
+}
+#carousel > .project_container .buttons_container a {
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.159);
 }
 #carousel > .project_container:after {
   content: "";
@@ -134,10 +162,6 @@ a:hover {
   -o-object-fit: cover;
      object-fit: cover;
   cursor: pointer;
-  transition: scale 0.5s;
-}
-#carousel > .project_container img:hover {
-  scale: 1.05;
 }
 #carousel .light_through {
   width: 10rem;
@@ -169,17 +193,17 @@ a:hover {
   gap: 2rem;
 }
 #contact_form h1 {
-  background-color: var(--green);
-  color: var(--black);
+  color: var(--green);
   padding: 0.5rem 3rem;
 }
 #contact_form form {
   display: grid;
   gap: 2rem;
+  width: 60rem;
 }
 #contact_form form > * {
-  font-size: 1.75rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding: 1rem;
   background-color: var(--black);
   color: var(--white);
   outline: none;
@@ -191,6 +215,15 @@ a:hover {
 #contact_form form textarea {
   grid-column: 1/3;
   resize: vertical;
+}
+#contact_form form button {
+  background-color: var(--white);
+  color: var(--black);
+  grid-column: 1/3;
+  cursor: pointer;
+}
+#contact_form form button:hover {
+  filter: brightness(0.8);
 }
 
 @keyframes glowing {

@@ -14,7 +14,8 @@ function App() {
       let scrollTop = document.documentElement.scrollTop
       let lightHeight = document.querySelector(".light_through").clientHeight
       let welcomeHeight = document.querySelector("#welcome_section").clientHeight;
-      let scrollProgress = parseInt(scrollTop - welcomeHeight) / (document.documentElement.scrollHeight - 2 * welcomeHeight);
+      let scrollHeight = document.documentElement.scrollHeight;
+      let scrollProgress = parseInt(scrollTop - welcomeHeight) / (scrollHeight - 2 * welcomeHeight);
 
       // Animating carousel rotateZ
       gsap.to("#carousel", { '--carouselZ': scrollProgress * 10 + "deg" })
@@ -44,9 +45,9 @@ function App() {
             '--splash-light-x': 60 - 40 * scrollProgress + "%",
             '--splash-light-y': 20 * Math.abs(scrollProgress - 0.5) + "%",
           })
-          gsap.to(":root", {
-            '--background-top-position': scrollProgress > 0.1 ? 10 * (scrollProgress - 0.1) + "%" : 0
-          })
+      gsap.to(":root", 0 , {
+        '--background-top-position': scrollTop > welcomeHeight ? 10 * scrollProgress + "%" : 0
+      })
     }
 
 
@@ -62,7 +63,7 @@ function App() {
           {
             projects.map(elem => {
               return (
-                <Project imageUrl={elem.imgUrl} key={elem.id} />
+                <Project imageUrl={elem.imgUrl} liveUrl={elem.liveUrl} repoUrl={elem.repoUrl} key={elem.id} />
               )
             })
           }
