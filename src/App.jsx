@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './App.css'
 import Welcome from './components/Welcome';
@@ -7,7 +7,25 @@ import { projects } from './projects.json';
 import Project from './components/Project';
 
 function App() {
-  
+  const [moonMode, setMoonMode] = useState(true);
+  useEffect(() => {
+    if (moonMode) {
+      gsap.set(":root", {
+        "--black": "#262626",
+        "--darken-white": "#F2F2F2",
+        "--grey": "grey",
+        "--white": "white"
+      })
+    }
+    else {
+      gsap.set(":root", {
+        "--black": "#262626",
+        "--darken-white": "#F2F2F2",
+        "--grey": "orange",
+        "--white": "yellow"
+      })
+    }
+  }, [moonMode])
   useLayoutEffect(() => {
     handleScroll();
     function handleScroll() {
@@ -43,7 +61,7 @@ function App() {
           {
             '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px"
           })
-      gsap.to(":root", 1 , {
+      gsap.to(":root", 1, {
         '--background-top-position': scrollTop > welcomeHeight ? 10 * scrollProgress + "%" : 0
       })
     }
@@ -65,7 +83,7 @@ function App() {
               )
             })
           }
-          <span className='light_through moon_mode'></span>
+          <span onClick={() => setMoonMode(!moonMode)} className={`light_through ${moonMode ? "moon_mode" : "sun_mode"}`}></span>
         </div>
       </section>
       <Form />
