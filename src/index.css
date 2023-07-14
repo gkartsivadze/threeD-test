@@ -6,19 +6,43 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  animation: changeToMoon 0.5s forwards;
   color-scheme: light dark;
   color: var(--white);
-  background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), 70%, transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.jpg) center var(--background-top-position, 0) fixed;
+  background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), 70%, transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.webp) center var(--background-top-position, 0) fixed;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+:root.sun_mode {
+  animation: changeToSun 0.5s forwards;
+}
 :root::-webkit-scrollbar {
   display: none;
 }
 
+@keyframes changeToMoon {
+  0% {
+    --grey: orange;
+    --white: yellow;
+  }
+  100% {
+    --grey: grey;
+    --white: white;
+  }
+}
+@keyframes changeToSun {
+  0% {
+    --grey: grey;
+    --white: white;
+  }
+  100% {
+    --grey: orange;
+    --white: yellow;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +58,7 @@ a {
   height: 100vh;
   padding: 5rem;
   display: grid;
-  grid-template-columns: 30rem 1fr 10rem;
+  grid-template-columns: max-content 1fr 10rem;
   grid-template-rows: 1fr 1fr 2fr;
   gap: 5rem;
 }
@@ -75,11 +99,11 @@ a {
 }
 
 #skills_carousel {
+  position: relative;
   grid-row: 1/4;
   grid-column: 3/4;
   background: linear-gradient(var(--white), 5%, var(--grey), 95%, var(--white));
   box-shadow: inset 0 0 1rem var(--black);
-  position: relative;
   overflow: hidden;
 }
 #skills_carousel svg {
@@ -146,6 +170,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   filter: opacity(0);
+  color: white;
   transition: filter 0.3s;
 }
 #carousel > .project_container .buttons_container:has(a:nth-of-type(1):hover) .horizontal_line {
@@ -198,17 +223,23 @@ a {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  background: url(../public/earth.svg) var(--white);
-  background-size: cover;
   cursor: pointer;
   transform: translateY(var(--light-transform, 0px)) rotateZ(var(--light-rotate, 0deg));
   animation: glowing 5s ease-out infinite;
 }
-#carousel .light_through.moon_mode:hover {
-  background: white;
+#carousel .light_through.moon_mode {
+  background: url(../public/earth.svg) white;
+  background-size: cover;
 }
-#carousel .light_through.moon_mode:hover::after {
-  background: radial-gradient(transparent, yellow);
+#carousel .light_through.moon_mode:hover {
+  background: yellow;
+}
+#carousel .light_through.sun_mode {
+  background: yellow;
+}
+#carousel .light_through.sun_mode:hover {
+  background: url(../public/earth.svg) white;
+  background-size: cover;
 }
 #carousel .light_through:hover {
   animation-duration: 2s;
@@ -288,6 +319,8 @@ a {
 #contact_form form textarea {
   grid-column: 1/3;
   resize: vertical;
+  min-height: 4rem;
+  max-height: 40ch;
 }
 #contact_form form button {
   background-color: var(--darken-white);
@@ -297,4 +330,29 @@ a {
 }
 #contact_form form button:hover {
   filter: brightness(0.8);
+}
+
+@media (max-width: 1150px) {
+  #welcome_section {
+    grid-template-columns: 1fr 8rem;
+    gap: 2rem;
+  }
+  #welcome_section .hero_div h1 {
+    font-size: 2rem;
+  }
+  #welcome_section .hero_div h2 {
+    font-size: 1rem;
+  }
+  #welcome_section p {
+    font-size: 1rem;
+    grid-column: 1/2;
+  }
+  #welcome_section #skills_carousel {
+    grid-column: 2/3;
+  }
+}
+@media (max-width: 700px) {
+  :root {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=index.css.map */

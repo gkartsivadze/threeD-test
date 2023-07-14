@@ -3,28 +3,54 @@
     --darken-white: #F2F2F2;
     --grey: grey;
     --white: white;
-
-
-
-
+    
+    
+    
+    
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
+    animation: changeToMoon 0.5s forwards;
     color-scheme: light dark;
     color: var(--white);
     background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), 70%, transparent),
         linear-gradient(black, 30%, transparent, 70%, black),
-        url(../public/stars-back.jpg) center var(--background-top-position, 0) fixed;
+        url(../public/stars-back.webp) center var(--background-top-position, 0) fixed;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
-
+    
+    &.sun_mode {
+        animation: changeToSun 0.5s forwards;
+    }
     &::-webkit-scrollbar {
         display: none;
+    }
+}
+
+@keyframes changeToMoon {
+    0% {
+        --grey: orange;
+        --white: yellow;
+    }
+    100% {
+        --grey: grey;
+        --white: white;
+    }
+}
+
+@keyframes changeToSun {
+    0% {
+        --grey: grey;
+        --white: white;
+    }
+    100% {
+        --grey: orange;
+        --white: yellow;
     }
 }
 
@@ -44,7 +70,7 @@ a {
     padding: 5rem;
 
     display: grid;
-    grid-template-columns: 30rem 1fr 10rem;
+    grid-template-columns: max-content 1fr 10rem;
     grid-template-rows: 1fr 1fr 2fr;
     gap: 5rem;
 
@@ -94,14 +120,14 @@ a {
 }
 
 #skills_carousel {
-    grid-row: 1 / 4;
-    grid-column: 3 / 4;
-    background: linear-gradient(var(--white), 5%, var(--grey), 95%, var(--white));
-    box-shadow: inset 0 0 1rem var(--black);
     position: relative;
 
-    overflow: hidden;
+    grid-row: 1 / 4;
+    grid-column: 3 / 4;
 
+    background: linear-gradient(var(--white), 5%, var(--grey), 95%, var(--white));
+    box-shadow: inset 0 0 1rem var(--black);
+    overflow: hidden;
     svg {
         position: absolute;
         height: 10%;
@@ -183,7 +209,7 @@ a {
             display: grid;
             grid-template-columns: 1fr 1fr;
             filter: opacity(0);
-
+            color: white;
             transition: filter 0.3s;
 
             &:has(a:nth-of-type(1):hover) {
@@ -252,17 +278,23 @@ a {
         width: 10rem;
         height: 10rem;
         border-radius: 50%;
-        background: url(../public/earth.svg) var(--white);
-        background-size: cover;
         cursor: pointer;
-
+        
         transform: translateY(var(--light-transform, 0px)) rotateZ(var(--light-rotate, 0deg));
-
+        
         animation: glowing 5s ease-out infinite;
-        &.moon_mode:hover {
-            background:white;
-            &::after {
-                background: radial-gradient(transparent, yellow);
+        &.moon_mode {
+            background: url(../public/earth.svg) white;
+            background-size: cover;
+            &:hover {
+                background: yellow;
+            }
+        }
+        &.sun_mode {
+            background:  yellow;
+            &:hover {
+                background: url(../public/earth.svg) white;
+                background-size: cover;
             }
         }
         &:hover {
@@ -330,6 +362,8 @@ a {
         textarea {
             grid-column: 1 / 3;
             resize: vertical;
+            min-height: 4rem;
+            max-height: 40ch;
         }
 
         button {
@@ -342,5 +376,34 @@ a {
                 filter: brightness(0.8);
             }
         }
+    }
+}
+
+@media (max-width: 1150px) {
+    #welcome_section {
+        grid-template-columns: 1fr 8rem;
+        gap: 2rem;
+        .hero_div {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1rem;
+            }
+        }
+        
+        p {
+            font-size: 1rem;
+            grid-column: 1 / 2;
+        }
+        #skills_carousel {
+            grid-column: 2 / 3;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    :root {
+        font-size: 12px;
     }
 }

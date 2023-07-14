@@ -19,8 +19,8 @@ export default function Form() {
         <section id="contact_form">
             <h1>CONTACT FORM</h1>
             <form ref={form} onSubmit={sendEmail}>
-                <input name='name' type="text" placeholder='Name' required />
-                <input name='email' type="email" placeholder='Email' required />
+                <input name='name' type="text" placeholder='Name' autoComplete="name" required />
+                <input name='email' type="email" placeholder='Email' autoComplete="email" required />
                 <textarea name="message" id="message" cols="30" rows="10" placeholder='Type message' required></textarea>
                 <button>Send</button>
             </form>

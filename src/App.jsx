@@ -9,21 +9,10 @@ import Project from './components/Project';
 function App() {
   const [moonMode, setMoonMode] = useState(true);
   useEffect(() => {
-    if (moonMode) {
-      gsap.set(":root", {
-        "--black": "#262626",
-        "--darken-white": "#F2F2F2",
-        "--grey": "grey",
-        "--white": "white"
-      })
-    }
-    else {
-      gsap.set(":root", {
-        "--black": "#262626",
-        "--darken-white": "#F2F2F2",
-        "--grey": "orange",
-        "--white": "yellow"
-      })
+    if(!moonMode) {
+      document.documentElement.classList.add("sun_mode");
+    } else {
+      document.documentElement.classList.remove("sun_mode");
     }
   }, [moonMode])
   useLayoutEffect(() => {
@@ -62,13 +51,13 @@ function App() {
             '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px"
           })
       gsap.to(":root", 1, {
-        '--background-top-position': scrollTop > welcomeHeight ? 10 * scrollProgress + "%" : 0
+        '--background-top-position': scrollTop > welcomeHeight ? 80 * scrollProgress + "%" : 0
       })
     }
-
-
     document.addEventListener("scroll", handleScroll)
-    return () => document.removeEventListener("mousemove", handleScroll)
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    }
   }, [])
 
   return (
@@ -83,7 +72,7 @@ function App() {
               )
             })
           }
-          <span onClick={() => setMoonMode(!moonMode)} className={`light_through ${moonMode ? "moon_mode" : "sun_mode"}`}></span>
+          <span onClick={() => setMoonMode(prev => !prev)} className={`light_through ${moonMode ? "moon_mode" : "sun_mode"}`}></span>
         </div>
       </section>
       <Form />
