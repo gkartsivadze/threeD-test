@@ -347,7 +347,7 @@ a {
     font-size: 1rem;
   }
   #welcome_section p {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   #welcome_section #skills_carousel {
     grid-column: 2/3;
@@ -361,7 +361,7 @@ a {
   }
   #welcome_section .hero_div h1 {
     width: 100%;
-    font-size: clamp(1rem, 7vw, 3rem);
+    font-size: clamp(1rem, 7vw, 5rem);
     white-space: nowrap;
     overflow: hidden;
   }
@@ -398,5 +398,13 @@ a {
   #carousel .light_through {
     width: 6rem;
     height: 6rem;
+  }
+  #welcome_section {
+    grid-template-columns: 1fr 7rem;
+  }
+  #welcome_section svg {
+    width: 7rem;
+    height: 7rem;
+    padding: 1.5rem;
   }
 }/*# sourceMappingURL=index.css.map */
