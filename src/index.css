@@ -10,6 +10,7 @@
   color-scheme: light dark;
   color: var(--white);
   background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), 70%, transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.webp) center var(--background-top-position, 0) fixed;
+  background-size: cover;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -55,7 +56,7 @@ a {
 }
 
 #welcome_section {
-  height: 100vh;
+  height: clamp(50rem, 100vh, 100rem);
   padding: 5rem;
   display: grid;
   grid-template-columns: max-content 1fr 10rem;
@@ -132,8 +133,9 @@ a {
   position: absolute;
   top: 50%;
   transform-style: preserve-3d;
-  height: 10rem;
   transform: translateX(-25%) translateY(-50%) rotateY(var(--cards-rotation, 0deg)) translateZ(35rem);
+  height: 10rem;
+  width: 20rem;
 }
 #carousel > .project_container:hover .buttons_container {
   filter: opacity(1);
@@ -195,7 +197,7 @@ a {
   padding: 0.5rem;
   font-size: 0.75rem;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.159);
+  background: rgba(0, 0, 0, 0.2);
 }
 #carousel > .project_container:after {
   content: "";
@@ -304,7 +306,7 @@ a {
 #contact_form form {
   display: grid;
   gap: 2rem;
-  width: 60rem;
+  width: clamp(15rem, 80vw, 50rem);
 }
 #contact_form form > * {
   font-size: 1.5rem;
@@ -335,7 +337,7 @@ a {
 
 @media (max-width: 1150px) {
   #welcome_section {
-    grid-template-columns: 1fr 20%;
+    grid-template-columns: 1fr 10rem;
     gap: 2rem;
   }
   #welcome_section .hero_div {
@@ -354,15 +356,14 @@ a {
 }
 @media (max-width: 900px) {
   #welcome_section {
-    grid-template-columns: 1fr 15rem;
     gap: 2rem;
     padding: 5rem 2rem;
   }
   #welcome_section .hero_div h1 {
-    width: 100%; /* Set the desired width for the <h1> element */
+    width: 100%;
     font-size: clamp(1rem, 7vw, 3rem);
-    white-space: nowrap; /* Prevent line breaks within the heading */
-    overflow: hidden; /* Hide any overflow text */
+    white-space: nowrap;
+    overflow: hidden;
   }
   #welcome_section .hero_div h2 {
     font-size: 1rem;
@@ -370,5 +371,32 @@ a {
   #welcome_section .hero_div #skills_carousel {
     grid-column: 2/3;
     grid-row: 2/3;
+  }
+  #carousel .project_container {
+    width: 10rem;
+    height: 5rem;
+    transform: translateX(-25%) translateY(-50%) rotateY(var(--cards-rotation, 0deg)) translateZ(20rem);
+  }
+  #carousel .project_container img {
+    height: 100%;
+    width: 100%;
+  }
+  #carousel .project_container .buttons_container {
+    filter: opacity(1);
+    top: 80%;
+  }
+  #carousel .project_container .buttons_container a {
+    padding: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+@media (max-width: 850px) {
+  #contact_form form {
+    display: flex;
+    flex-direction: column;
+  }
+  #carousel .light_through {
+    width: 6rem;
+    height: 6rem;
   }
 }/*# sourceMappingURL=index.css.map */
