@@ -3,11 +3,11 @@
     --darken-white: #F2F2F2;
     --grey: grey;
     --white: white;
-    
-    
+
+
     width: 100vw;
     overflow-x: hidden;
-    
+
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -24,10 +24,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
-    
+
     &.sun_mode {
         animation: changeToSun 0.5s forwards;
     }
+
     &::-webkit-scrollbar {
         display: none;
     }
@@ -38,6 +39,7 @@
         --grey: orange;
         --white: yellow;
     }
+
     100% {
         --grey: grey;
         --white: white;
@@ -49,6 +51,7 @@
         --grey: grey;
         --white: white;
     }
+
     100% {
         --grey: orange;
         --white: yellow;
@@ -67,7 +70,7 @@ a {
 }
 
 #welcome_section {
-    height: clamp(25rem, 100vh , 100rem);
+    height: clamp(25rem, 100dvh, 100rem);
     padding: 5rem;
 
     display: grid;
@@ -129,6 +132,7 @@ a {
     background: linear-gradient(var(--white), 5%, var(--grey), 95%, var(--white));
     box-shadow: inset 0 0 1rem var(--black);
     overflow: hidden;
+
     svg {
         padding: 2rem;
         position: absolute;
@@ -151,7 +155,7 @@ a {
     display: flex;
     height: 100vh;
     transform-style: preserve-3d;
-    transform: translateY(var(--top, 0vh)) perspective(1200px) rotateZ(var(--carouselZ, 0deg));
+    transform: perspective(1200px) rotateZ(var(--carouselZ, 0deg));
 
     &>.project_container {
         --background-color: var(--white);
@@ -161,6 +165,7 @@ a {
         transform: translateX(-25%) translateY(-50%) rotateY(var(--cards-rotation, 0deg)) translateZ(35rem);
         height: 10rem;
         width: 20rem;
+
         &:hover {
             .buttons_container {
                 filter: opacity(1);
@@ -168,9 +173,9 @@ a {
         }
 
         &.furniture_project:hover {
-                --background-color: grey;
-            }
-            
+            --background-color: grey;
+        }
+
         &.artopia_project:hover {
             --background-color: #c299ff;
         }
@@ -200,6 +205,7 @@ a {
             &:has(a:nth-of-type(1):hover) {
                 --background-color: red;
             }
+
             &:has(a:nth-of-type(2):hover) {
                 --background-color: blue;
             }
@@ -281,24 +287,29 @@ a {
         height: 10rem;
         border-radius: 50%;
         cursor: pointer;
-        
+
         transform: translateY(var(--light-transform, 0px)) rotateZ(var(--light-rotate, 0deg));
-        
+
         animation: glowing 5s ease-out infinite;
+
         &.moon_mode {
             background: url(../public/earth.svg) white;
             background-size: cover;
+
             &:hover {
                 background: yellow;
             }
         }
+
         &.sun_mode {
-            background:  yellow;
+            background: yellow;
+
             &:hover {
                 background: url(../public/earth.svg) white;
                 background-size: cover;
             }
         }
+
         &:hover {
             animation-duration: 2s;
         }
@@ -317,17 +328,49 @@ a {
 }
 
 @keyframes glowing {
-    0% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
-    10% {box-shadow: 0 0 2.5rem rgb(183, 183, 183)}
-    20% {box-shadow: 0 0 2rem rgb(216, 216, 216)}
-    30% {box-shadow: 0 0 2.5rem rgb(183, 183, 183)}
-    40% {box-shadow: 0 0 3rem rgb(232, 232, 232)}
-    50% {box-shadow: 0 0 2.5rem rgb(200, 200, 200)}
-    60% {box-shadow: 0 0 3rem rgb(183, 183, 183)}
-    70% {box-shadow: 0 0 2.5rem rgb(224, 224, 224)}
-    80% {box-shadow: 0 0 2rem rgb(183, 183, 183)}
-    90% {box-shadow: 0 0 2.5rem rgb(211, 211, 211)}
-    100% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
+    0% {
+        box-shadow: 0 0 3rem rgb(255, 255, 255)
+    }
+
+    10% {
+        box-shadow: 0 0 2.5rem rgb(183, 183, 183)
+    }
+
+    20% {
+        box-shadow: 0 0 2rem rgb(216, 216, 216)
+    }
+
+    30% {
+        box-shadow: 0 0 2.5rem rgb(183, 183, 183)
+    }
+
+    40% {
+        box-shadow: 0 0 3rem rgb(232, 232, 232)
+    }
+
+    50% {
+        box-shadow: 0 0 2.5rem rgb(200, 200, 200)
+    }
+
+    60% {
+        box-shadow: 0 0 3rem rgb(183, 183, 183)
+    }
+
+    70% {
+        box-shadow: 0 0 2.5rem rgb(224, 224, 224)
+    }
+
+    80% {
+        box-shadow: 0 0 2rem rgb(183, 183, 183)
+    }
+
+    90% {
+        box-shadow: 0 0 2.5rem rgb(211, 211, 211)
+    }
+
+    100% {
+        box-shadow: 0 0 3rem rgb(255, 255, 255)
+    }
 }
 
 #contact_form {
@@ -385,16 +428,19 @@ a {
     #welcome_section {
         grid-template-columns: 1fr 10rem;
         gap: 2rem;
+
         .hero_div {
             grid-column: 1 / 3;
+
             h2 {
                 font-size: 1rem;
             }
         }
-        
+
         p {
             font-size: 1.1rem;
         }
+
         #skills_carousel {
             grid-column: 2 / 3;
             grid-row: 2 / 3
@@ -405,7 +451,8 @@ a {
 @media (max-width: 900px) {
     #welcome_section {
         gap: 2rem;
-        padding: 5rem 2rem;
+        padding: 2rem;
+
         .hero_div {
             h1 {
                 width: 100%;
@@ -413,30 +460,37 @@ a {
                 white-space: nowrap;
                 overflow: hidden;
             }
+
             h2 {
                 font-size: 1rem;
             }
+
             #skills_carousel {
                 grid-column: 2 / 3;
                 grid-row: 2 / 3
             }
         }
     }
-    #carousel .project_container {
-        width: 10rem;
-        height: 5rem;
-        transform: translateX(-25%) translateY(-50%) rotateY(var(--cards-rotation, 0deg)) translateZ(20rem);
-        img {
-            height: 100%;
-            width: 100%;
-        }
-        .buttons_container {
-            filter: opacity(1);
-            top: 80%;
 
-            a {
-                padding: 0;
-                background: rgba(0, 0, 0, 0.6)
+    #carousel {
+        .project_container {
+            width: 15rem;
+            height: 8rem;
+            transform: translateX(-25%) translateY(-50%) rotateX(var(--cards-rotation, 0deg)) translateZ(15rem);
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+
+            .buttons_container {
+                filter: opacity(1);
+                top: 80%;
+
+                a {
+                    padding: 0;
+                    background: rgba(0, 0, 0, 0.6)
+                }
             }
         }
     }
@@ -447,12 +501,15 @@ a {
         display: flex;
         flex-direction: column;
     }
+
     #carousel .light_through {
         width: 6rem;
         height: 6rem;
     }
+
     #welcome_section {
         grid-template-columns: 1fr 7rem;
+
         svg {
             width: 7rem;
             height: 7rem;
@@ -465,14 +522,18 @@ a {
     :root {
         font-size: 12px !important;
     }
+
     #welcome_section {
         padding: 2rem !important;
+
         .hero_div {
             grid-column: 1 / 2 !important;
         }
+
         p {
             grid-column: 1 / 2 !important;
         }
+
         #skills_carousel {
             grid-row: 1 / 4 !important;
         }
