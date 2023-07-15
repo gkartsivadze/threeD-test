@@ -9,7 +9,7 @@ import Project from './components/Project';
 function App() {
   const [moonMode, setMoonMode] = useState(true);
   useEffect(() => {
-    if(!moonMode) {
+    if (!moonMode) {
       document.documentElement.classList.add("sun_mode");
     } else {
       document.documentElement.classList.remove("sun_mode");
@@ -25,7 +25,7 @@ function App() {
       let scrollProgress = parseInt(scrollTop - welcomeHeight) / (scrollHeight - 2 * welcomeHeight);
 
       // Animating carousel rotateZ
-      gsap.to("#carousel", { '--carouselZ': document.documentElement.clientWidth > 800 ? scrollProgress * 10 + "deg" : "0deg"})
+      gsap.to("#carousel", { '--carouselZ': document.documentElement.clientWidth > 800 ? scrollProgress * 10 + "deg" : "0deg" })
 
       // Positioning and animating each card of project
       const cards = gsap.utils.toArray("#carousel .project_container");
@@ -37,7 +37,7 @@ function App() {
       })
 
       // Animating lighting comes up
-      if(document.documentElement.clientWidth > 800) {
+      if (document.documentElement.clientWidth > 800) {
         gsap.to(".light_through",
           scrollTop < welcomeHeight
             ?
@@ -50,12 +50,12 @@ function App() {
               '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px",
               '--light-rotate': 90 * scrollProgress + "deg"
             })
+        gsap.to(":root", {
+          '--background-top-position': scrollTop > welcomeHeight ? 80 * scrollProgress + "%" : 0
+        })
       } else {
-        gsap.set(".light_through", {'--light-transform': (-welcomeHeight - lightHeight) / 2 + "px"})
+        gsap.set(".light_through", { '--light-transform': (-welcomeHeight - lightHeight) / 2 + "px" })
       }
-      gsap.to(":root", {
-        '--background-top-position': scrollTop > welcomeHeight || document.documentElement.clientWidth > 800 ? 80 * scrollProgress + "%" : 0
-      })
     }
     document.addEventListener("scroll", handleScroll)
     return () => {
