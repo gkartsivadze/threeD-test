@@ -399,7 +399,7 @@ a {
   #carousel .project_container {
     width: 18rem;
     height: 10rem;
-    transform: translateX(-25%) translateY(-50%) rotateX(var(--cards-rotation, 0deg)) translateZ(15rem);
+    transform: translateX(-6rem) translateY(-50%) rotateX(var(--cards-rotation, 0deg)) translateZ(15rem);
   }
   #carousel .project_container img {
     height: 100%;
@@ -431,6 +431,11 @@ a {
     width: 7rem;
     height: 7rem;
     padding: 1.5rem;
+  }
+}
+@media (max-width: 800px) {
+  #carousel .light_through {
+    transform: translateY(var(--light-transform, 0px));
   }
 }
 @media (max-height: 700px) {

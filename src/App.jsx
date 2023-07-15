@@ -37,7 +37,7 @@ function App() {
       })
 
       // Animating lighting comes up
-      if(document.documentElement.offsetWidth > 900) {
+      if(document.documentElement.clientWidth > 800) {
         gsap.to(".light_through",
           scrollTop < welcomeHeight
             ?
@@ -51,10 +51,10 @@ function App() {
               '--light-rotate': 90 * scrollProgress + "deg"
             })
       } else {
-        gsap.set(".light_through", {'--light-transform': (-welcomeHeight - lightHeight) / 2 + "px",})
+        gsap.set(".light_through", {'--light-transform': (-welcomeHeight - lightHeight) / 2 + "px"})
       }
       gsap.to(":root", {
-        '--background-top-position': scrollTop > welcomeHeight || document.documentElement.clientWidth > 900 ? 80 * scrollProgress + "%" : 0
+        '--background-top-position': scrollTop > welcomeHeight || document.documentElement.clientWidth > 800 ? 80 * scrollProgress + "%" : 0
       })
     }
     document.addEventListener("scroll", handleScroll)
