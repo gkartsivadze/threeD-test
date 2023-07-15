@@ -25,32 +25,34 @@ function App() {
       let scrollProgress = parseInt(scrollTop - welcomeHeight) / (scrollHeight - 2 * welcomeHeight);
 
       // Animating carousel rotateZ
-      gsap.to("#carousel", { '--carouselZ': scrollProgress * 10 + "deg" })
+      gsap.to("#carousel", { '--carouselZ': scrollProgress * 10 + "deg"})
 
       // Positioning and animating each card of project
       const cards = gsap.utils.toArray("#carousel .project_container");
       cards.forEach((elem, ind) => {
         let newRotation = ind / cards.length * 360 - scrollProgress * 405;
         gsap.to(elem, {
-          '--cards-rotation': `${newRotation}deg`,
-          duration: 1
+          '--cards-rotation': `${newRotation}deg`
         })
       })
 
       // Animating lighting comes up
-      gsap.to(".light_through",
-        scrollTop < welcomeHeight
-          ?
-          {
-            '--light-transform': (-welcomeHeight - lightHeight) / 2 + scrollTop + "px",
-            '--light-rotate': 720 * scrollProgress + "deg",
-            duration: 2
-          }
-          :
-          {
-            '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px"
-          })
-      gsap.to(":root", 1, {
+      if(document.documentElement.offsetWidth > 900) {
+        gsap.to(".light_through",
+          scrollTop < welcomeHeight
+            ?
+            {
+              '--light-transform': (-welcomeHeight - lightHeight) / 2 + scrollTop + "px",
+              '--light-rotate': 720 * scrollProgress + "deg"
+            }
+            :
+            {
+              '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px"
+            })
+      } else {
+        gsap.set(".light_through", {'--light-transform': (-welcomeHeight - lightHeight) / 2 + "px",})
+      }
+      gsap.to(":root", {
         '--background-top-position': scrollTop > welcomeHeight ? 80 * scrollProgress + "%" : 0
       })
     }

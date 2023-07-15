@@ -454,15 +454,34 @@ a {
         padding: 2rem;
 
         .hero_div {
+            background-color: var(--white);
+            height: fit-content;
+            padding: 1rem;
+            outline: 3px solid var(--black);
+            outline-offset: -0.5rem;
+            transition: background-color 0.3s, outline-offset 0.3s 0.3s, outline-color 0.3s 0.6s;
+            &:hover {
+                background-color: var(--black);
+                outline-offset: 1rem;
+                outline-color: var(--white);
+                &>h1 {
+                    color: var(--white);
+                }
+            }
             h1 {
                 width: 100%;
                 font-size: clamp(1rem, 7vw, 5rem);
                 white-space: nowrap;
                 overflow: hidden;
+                padding: 0;
+                outline: none;
+                background-color: transparent;
+                color: var(--black);
             }
 
             h2 {
                 font-size: 1rem;
+                color: var(--grey);
             }
 
             #skills_carousel {
