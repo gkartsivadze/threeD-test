@@ -25,7 +25,7 @@ function App() {
       let scrollProgress = parseInt(scrollTop - welcomeHeight) / (scrollHeight - 2 * welcomeHeight);
 
       // Animating carousel rotateZ
-      gsap.to("#carousel", { '--carouselZ': scrollProgress * 10 + "deg"})
+      gsap.to("#carousel", { '--carouselZ': document.documentElement.clientWidth > 800 ? scrollProgress * 10 + "deg" : "0deg"})
 
       // Positioning and animating each card of project
       const cards = gsap.utils.toArray("#carousel .project_container");
