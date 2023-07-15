@@ -4,7 +4,6 @@
   --grey: grey;
   --white: white;
   width: 100vw;
-  overflow-x: hidden;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -62,7 +61,7 @@ a {
   padding: 5rem;
   display: grid;
   grid-template-columns: max-content 1fr 10rem;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: min-content 1fr min-content;
   gap: 5rem;
 }
 #welcome_section .hero_div {
@@ -381,6 +380,7 @@ a {
   #welcome_section .hero_div h1 {
     width: 100%;
     font-size: clamp(1rem, 7vw, 5rem);
+    line-height: clamp(1rem, 7vw, 5rem);
     white-space: nowrap;
     overflow: hidden;
     padding: 0;
@@ -411,7 +411,8 @@ a {
   }
   #carousel .project_container .buttons_container a {
     padding: 0;
-    background: rgba(0, 0, 0, 0.6);
+    color: var(--black);
+    background: rgba(255, 255, 255, 0.8);
   }
 }
 @media (max-width: 850px) {

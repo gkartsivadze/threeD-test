@@ -43,17 +43,18 @@ function App() {
             ?
             {
               '--light-transform': (-welcomeHeight - lightHeight) / 2 + scrollTop + "px",
-              '--light-rotate': 720 * scrollProgress + "deg"
+              '--light-rotate': 360 * scrollProgress + "deg"
             }
             :
             {
-              '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px"
+              '--light-transform': 200 + lightHeight / 2 - scrollProgress * 100 + "px",
+              '--light-rotate': 90 * scrollProgress + "deg"
             })
       } else {
         gsap.set(".light_through", {'--light-transform': (-welcomeHeight - lightHeight) / 2 + "px",})
       }
       gsap.to(":root", {
-        '--background-top-position': scrollTop > welcomeHeight ? 80 * scrollProgress + "%" : 0
+        '--background-top-position': scrollTop > welcomeHeight || document.documentElement.clientWidth > 900 ? 80 * scrollProgress + "%" : 0
       })
     }
     document.addEventListener("scroll", handleScroll)
