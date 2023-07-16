@@ -1,0 +1,102 @@
+@keyframes glowing {
+    0% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
+    10% {box-shadow: 0 0 2.5rem rgb(183, 183, 183)}
+    20% {box-shadow: 0 0 2rem rgb(216, 216, 216)}
+    30% {box-shadow: 0 0 2.5rem rgb(183, 183, 183)}
+    40% {box-shadow: 0 0 3rem rgb(232, 232, 232)}
+    50% {box-shadow: 0 0 2.5rem rgb(200, 200, 200)}
+    60% {box-shadow: 0 0 3rem rgb(183, 183, 183)}
+    70% {box-shadow: 0 0 2.5rem rgb(224, 224, 224)}
+    80% {box-shadow: 0 0 2rem rgb(183, 183, 183)}
+    90% {box-shadow: 0 0 2.5rem rgb(211, 211, 211)}
+    100% {box-shadow: 0 0 3rem rgb(255, 255, 255)}
+}
+
+@keyframes changeToSun {
+    0%  {
+        --grey: grey;
+        --white: white;
+        --middle-point: 70%;
+    }
+    5%  {--middle-point: 63%;}
+    10% {--middle-point: 49%;}
+    15% {--middle-point: 42%;}
+    20% {--middle-point: 35%;}
+    25% {--middle-point: 28%;}
+    30% {--middle-point: 21%;}
+    35% {--middle-point: 14%;}
+    40% {
+        --grey: grey;
+        --white: white;
+        --middle-point: 7%;
+    }
+    45% {--middle-point: 0%;}
+    50% {
+        --grey: orange;
+        --white: yellow;
+        --middle-point: 0%;
+    }
+    55% {--middle-point: 7%;}
+    60% {--middle-point: 14%;}
+    65% {--middle-point: 21%;}
+    70% {--middle-point: 28%;}
+    75% {--middle-point: 35%;}
+    80% {--middle-point: 42%;}
+    85% {--middle-point: 49%;}
+    90% {--middle-point: 56%;}
+    95% {--middle-point: 63%;}
+    100%{
+        --middle-point: 70%;
+        --grey: orange;
+        --white: yellow;
+    }
+}
+
+@keyframes changeToMoon {
+    0%  {
+        --grey: grey;
+        --white: white;
+        --middle-point: 70%;
+    }
+    5%  {--middle-point: 63%;}
+    10% {--middle-point: 49%;}
+    15% {--middle-point: 42%;}
+    20% {--middle-point: 35%;}
+    25% {--middle-point: 28%;}
+    30% {--middle-point: 21%;}
+    35% {--middle-point: 14%;}
+    40% {
+        --grey: grey;
+        --white: white;
+        --middle-point: 7%;
+    }
+    45% {--middle-point: 0%;}
+    50% {
+        --grey: orange;
+        --white: yellow;
+        --middle-point: 0%;
+    }
+    55% {--middle-point: 7%;}
+    60% {--middle-point: 14%;}
+    65% {--middle-point: 21%;}
+    70% {--middle-point: 28%;}
+    75% {--middle-point: 35%;}
+    80% {--middle-point: 42%;}
+    85% {--middle-point: 49%;}
+    90% {--middle-point: 56%;}
+    95% {--middle-point: 63%;}
+    100%{
+        --middle-point: 70%;
+        --grey: orange;
+        --white: yellow;
+    }
+}
+
+@keyframes showUp {
+    from {
+        filter: opacity(0);
+    }
+    to {
+        filter: opacity(1);
+    }
+}

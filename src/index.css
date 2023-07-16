@@ -1,29 +1,38 @@
-:root {
-  --black: #262626;
-  --darken-white: #F2F2F2;
-  --grey: grey;
-  --white: white;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: var(--white);
-  background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), var(--middle-point, 70%), transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.webp) center var(--background-top-position, 0) fixed;
-  background-size: cover;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  animation: changeToMoon 0.3s forwards reverse;
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 3rem rgb(255, 255, 255);
+  }
+  10% {
+    box-shadow: 0 0 2.5rem rgb(183, 183, 183);
+  }
+  20% {
+    box-shadow: 0 0 2rem rgb(216, 216, 216);
+  }
+  30% {
+    box-shadow: 0 0 2.5rem rgb(183, 183, 183);
+  }
+  40% {
+    box-shadow: 0 0 3rem rgb(232, 232, 232);
+  }
+  50% {
+    box-shadow: 0 0 2.5rem rgb(200, 200, 200);
+  }
+  60% {
+    box-shadow: 0 0 3rem rgb(183, 183, 183);
+  }
+  70% {
+    box-shadow: 0 0 2.5rem rgb(224, 224, 224);
+  }
+  80% {
+    box-shadow: 0 0 2rem rgb(183, 183, 183);
+  }
+  90% {
+    box-shadow: 0 0 2.5rem rgb(211, 211, 211);
+  }
+  100% {
+    box-shadow: 0 0 3rem rgb(255, 255, 255);
+  }
 }
-:root.sun_mode {
-  animation: changeToSun 0.3s forwards;
-}
-:root::-webkit-scrollbar {
-  display: none;
-}
-
 @keyframes changeToSun {
   0% {
     --grey: grey;
@@ -170,6 +179,40 @@
     --white: yellow;
   }
 }
+@keyframes showUp {
+  from {
+    filter: opacity(0);
+  }
+  to {
+    filter: opacity(1);
+  }
+}
+:root {
+  --black: #262626;
+  --darken-white: #F2F2F2;
+  --grey: grey;
+  --white: white;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--white);
+  background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), var(--middle-point, 70%), transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.webp) center var(--background-top-position, 0) fixed;
+  background-size: cover;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  animation: changeToMoon 0.3s forwards reverse;
+}
+:root.sun_mode {
+  animation: changeToSun 0.3s forwards;
+}
+:root::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -182,7 +225,7 @@ a {
 }
 
 #welcome_section {
-  height: 100vh;
+  height: 100dvh;
   min-height: 40rem;
   max-height: 100rem;
   padding: 5rem;
@@ -197,6 +240,7 @@ a {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  animation: showUp 1s forwards;
 }
 #welcome_section .hero_div h1 {
   background-color: var(--white);
@@ -227,6 +271,7 @@ a {
   align-self: flex-end;
   z-index: 1;
   transition: all 0.3s;
+  animation: showUp 1s forwards;
 }
 
 #skills_carousel {
@@ -421,41 +466,6 @@ a {
   z-index: 1;
 }
 
-@keyframes glowing {
-  0% {
-    box-shadow: 0 0 3rem rgb(255, 255, 255);
-  }
-  10% {
-    box-shadow: 0 0 2.5rem rgb(183, 183, 183);
-  }
-  20% {
-    box-shadow: 0 0 2rem rgb(216, 216, 216);
-  }
-  30% {
-    box-shadow: 0 0 2.5rem rgb(183, 183, 183);
-  }
-  40% {
-    box-shadow: 0 0 3rem rgb(232, 232, 232);
-  }
-  50% {
-    box-shadow: 0 0 2.5rem rgb(200, 200, 200);
-  }
-  60% {
-    box-shadow: 0 0 3rem rgb(183, 183, 183);
-  }
-  70% {
-    box-shadow: 0 0 2.5rem rgb(224, 224, 224);
-  }
-  80% {
-    box-shadow: 0 0 2rem rgb(183, 183, 183);
-  }
-  90% {
-    box-shadow: 0 0 2.5rem rgb(211, 211, 211);
-  }
-  100% {
-    box-shadow: 0 0 3rem rgb(255, 255, 255);
-  }
-}
 #contact_form {
   height: 100vh;
   display: flex;
