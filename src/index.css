@@ -7,40 +7,166 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  animation: changeToMoon 0.5s forwards;
   color-scheme: light dark;
   color: var(--white);
-  background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), 70%, transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.webp) center var(--background-top-position, 0) fixed;
+  background: radial-gradient(80vw 350vh at 50% 300vh, var(--grey), var(--middle-point, 70%), transparent), linear-gradient(black, 30%, transparent, 70%, black), url(../public/stars-back.webp) center var(--background-top-position, 0) fixed;
   background-size: cover;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  animation: changeToMoon 0.3s forwards reverse;
 }
 :root.sun_mode {
-  animation: changeToSun 0.5s forwards;
+  animation: changeToSun 0.3s forwards;
 }
 :root::-webkit-scrollbar {
   display: none;
 }
 
-@keyframes changeToMoon {
-  0% {
-    --grey: orange;
-    --white: yellow;
-  }
-  100% {
-    --grey: grey;
-    --white: white;
-  }
-}
 @keyframes changeToSun {
   0% {
     --grey: grey;
     --white: white;
+    --middle-point: 70%;
+  }
+  5% {
+    --middle-point: 63%;
+  }
+  10% {
+    --middle-point: 49%;
+  }
+  15% {
+    --middle-point: 42%;
+  }
+  20% {
+    --middle-point: 35%;
+  }
+  25% {
+    --middle-point: 28%;
+  }
+  30% {
+    --middle-point: 21%;
+  }
+  35% {
+    --middle-point: 14%;
+  }
+  40% {
+    --grey: grey;
+    --white: white;
+    --middle-point: 7%;
+  }
+  45% {
+    --middle-point: 0%;
+  }
+  50% {
+    --grey: orange;
+    --white: yellow;
+    --middle-point: 0%;
+  }
+  55% {
+    --middle-point: 7%;
+  }
+  60% {
+    --middle-point: 14%;
+  }
+  65% {
+    --middle-point: 21%;
+  }
+  70% {
+    --middle-point: 28%;
+  }
+  75% {
+    --middle-point: 35%;
+  }
+  80% {
+    --middle-point: 42%;
+  }
+  85% {
+    --middle-point: 49%;
+  }
+  90% {
+    --middle-point: 56%;
+  }
+  95% {
+    --middle-point: 63%;
   }
   100% {
+    --middle-point: 70%;
+    --grey: orange;
+    --white: yellow;
+  }
+}
+@keyframes changeToMoon {
+  0% {
+    --grey: grey;
+    --white: white;
+    --middle-point: 70%;
+  }
+  5% {
+    --middle-point: 63%;
+  }
+  10% {
+    --middle-point: 49%;
+  }
+  15% {
+    --middle-point: 42%;
+  }
+  20% {
+    --middle-point: 35%;
+  }
+  25% {
+    --middle-point: 28%;
+  }
+  30% {
+    --middle-point: 21%;
+  }
+  35% {
+    --middle-point: 14%;
+  }
+  40% {
+    --grey: grey;
+    --white: white;
+    --middle-point: 7%;
+  }
+  45% {
+    --middle-point: 0%;
+  }
+  50% {
+    --grey: orange;
+    --white: yellow;
+    --middle-point: 0%;
+  }
+  55% {
+    --middle-point: 7%;
+  }
+  60% {
+    --middle-point: 14%;
+  }
+  65% {
+    --middle-point: 21%;
+  }
+  70% {
+    --middle-point: 28%;
+  }
+  75% {
+    --middle-point: 35%;
+  }
+  80% {
+    --middle-point: 42%;
+  }
+  85% {
+    --middle-point: 49%;
+  }
+  90% {
+    --middle-point: 56%;
+  }
+  95% {
+    --middle-point: 63%;
+  }
+  100% {
+    --middle-point: 70%;
     --grey: orange;
     --white: yellow;
   }
@@ -67,6 +193,9 @@ a {
 #welcome_section .hero_div {
   width: -moz-max-content;
   width: max-content;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 #welcome_section .hero_div h1 {
   background-color: var(--white);
@@ -98,20 +227,38 @@ a {
   align-self: flex-end;
   text-align: center;
   z-index: 1;
+  transition: all 0.3s;
 }
 
 #skills_carousel {
   position: relative;
   grid-row: 1/4;
   grid-column: 3/4;
-  background: linear-gradient(var(--white), 5%, var(--grey), 95%, var(--white));
+  background: var(--grey);
   box-shadow: inset 0 0 1rem var(--black);
   overflow: hidden;
+  transition: all 0.3s;
 }
 #skills_carousel svg {
   padding: 2rem;
   position: absolute;
   height: 10rem;
+}
+#skills_carousel:before, #skills_carousel:after {
+  height: 10%;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+#skills_carousel:before {
+  background: linear-gradient(var(--black), transparent);
+  top: 0;
+}
+#skills_carousel:after {
+  background: linear-gradient(transparent, var(--black));
+  bottom: 0;
 }
 
 #carousel_container {
@@ -228,6 +375,7 @@ a {
   height: 10rem;
   border-radius: 50%;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transform: translateY(var(--light-transform, 0px)) rotateZ(var(--light-rotate, 0deg));
   animation: glowing 5s ease-out infinite;
 }
@@ -235,15 +383,8 @@ a {
   background: url(../public/earth.svg) white;
   background-size: cover;
 }
-#carousel .light_through.moon_mode:hover {
-  background: yellow;
-}
 #carousel .light_through.sun_mode {
   background: yellow;
-}
-#carousel .light_through.sun_mode:hover {
-  background: url(../public/earth.svg) white;
-  background-size: cover;
 }
 #carousel .light_through:hover {
   animation-duration: 2s;
