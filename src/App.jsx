@@ -60,6 +60,7 @@ function App() {
     document.addEventListener("scroll", handleScroll)
     return () => {
       document.removeEventListener("scroll", handleScroll);
+      gsap.globalTimeline.clear()
     }
   }, [])
 

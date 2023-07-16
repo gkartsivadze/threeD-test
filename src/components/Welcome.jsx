@@ -1,7 +1,8 @@
 import { gsap } from "gsap"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export default function Welcome() {
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
     useEffect(() => {
         let skillHeight = document.querySelector("#skills_carousel > svg").clientHeight;
         let roadHeight = document.querySelector("#skills_carousel").clientHeight + skillHeight * 2;
@@ -22,7 +23,15 @@ export default function Welcome() {
                             },
                             repeat: -1
                             })
-    }, [])
+        function handleResize() {
+            setWindowHeight(window.innerHeight);
+        }
+        window.addEventListener("resize", handleResize);
+        return () => {
+            gsap.globalTimeline.clear()
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [windowHeight])
     return (
         <section id='welcome_section'>
             <div className="hero_div">

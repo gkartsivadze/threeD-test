@@ -582,6 +582,7 @@ a {
     font-size: 12px !important;
   }
   #welcome_section {
+    grid-template-columns: 1fr 10rem;
     padding: 2rem !important;
   }
   #welcome_section .hero_div {
@@ -591,6 +592,7 @@ a {
     grid-column: 1/2 !important;
   }
   #welcome_section #skills_carousel {
+    grid-column: 2/3;
     grid-row: 1/4 !important;
   }
 }/*# sourceMappingURL=index.css.map */
