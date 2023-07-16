@@ -3,7 +3,6 @@
   --darken-white: #F2F2F2;
   --grey: grey;
   --white: white;
-  width: 100vw;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -208,8 +207,6 @@ a {
   transition: all 0.3s;
 }
 #welcome_section .hero_div h1:hover {
-  background-color: var(--black);
-  color: var(--white);
   outline-offset: 2rem;
   outline-color: var(--white);
 }
@@ -253,11 +250,11 @@ a {
   z-index: 1;
 }
 #skills_carousel:before {
-  background: linear-gradient(var(--black), transparent);
+  background: linear-gradient(var(--black), 20%, transparent);
   top: 0;
 }
 #skills_carousel:after {
-  background: linear-gradient(transparent, var(--black));
+  background: linear-gradient(transparent, 80%, var(--black));
   bottom: 0;
 }
 

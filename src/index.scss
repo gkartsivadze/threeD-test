@@ -4,9 +4,6 @@
     --grey: grey;
     --white: white;
 
-
-    width: 100vw;
-
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -34,78 +31,78 @@
 }
 
 @keyframes changeToSun {
-    0% {
+    0%  {
         --grey: grey;
         --white: white;
         --middle-point: 70%;
     }
-    5%{ --middle-point: 63%;}
+    5%  {--middle-point: 63%;}
     10% {--middle-point: 49%;}
-    15%{--middle-point: 42%;}
+    15% {--middle-point: 42%;}
     20% {--middle-point: 35%;}
-    25%{--middle-point: 28%;}
+    25% {--middle-point: 28%;}
     30% {--middle-point: 21%;}
-    35%{--middle-point: 14%;}
+    35% {--middle-point: 14%;}
     40% {
         --grey: grey;
         --white: white;
         --middle-point: 7%;
     }
-    45%{--middle-point: 0%;}
+    45% {--middle-point: 0%;}
     50% {
         --grey: orange;
         --white: yellow;
         --middle-point: 0%;
     }
-    55%{--middle-point: 7%;}
+    55% {--middle-point: 7%;}
     60% {--middle-point: 14%;}
-    65%{--middle-point: 21%;}
+    65% {--middle-point: 21%;}
     70% {--middle-point: 28%;}
-    75%{--middle-point: 35%;}
+    75% {--middle-point: 35%;}
     80% {--middle-point: 42%;}
-    85%{--middle-point: 49%;}
-    90%{--middle-point: 56%;}
-    95%{--middle-point: 63%;}
-    100% {
+    85% {--middle-point: 49%;}
+    90% {--middle-point: 56%;}
+    95% {--middle-point: 63%;}
+    100%{
         --middle-point: 70%;
         --grey: orange;
         --white: yellow;
     }
 }
 @keyframes changeToMoon {
-    0% {
+    0%  {
         --grey: grey;
         --white: white;
         --middle-point: 70%;
     }
-    5%{ --middle-point: 63%;}
+    5%  {--middle-point: 63%;}
     10% {--middle-point: 49%;}
-    15%{--middle-point: 42%;}
+    15% {--middle-point: 42%;}
     20% {--middle-point: 35%;}
-    25%{--middle-point: 28%;}
+    25% {--middle-point: 28%;}
     30% {--middle-point: 21%;}
-    35%{--middle-point: 14%;}
+    35% {--middle-point: 14%;}
     40% {
         --grey: grey;
         --white: white;
         --middle-point: 7%;
     }
-    45%{--middle-point: 0%;}
+    45% {--middle-point: 0%;}
     50% {
         --grey: orange;
         --white: yellow;
         --middle-point: 0%;
     }
-    55%{--middle-point: 7%;}
+    55% {--middle-point: 7%;}
     60% {--middle-point: 14%;}
-    65%{--middle-point: 21%;}
+    65% {--middle-point: 21%;}
     70% {--middle-point: 28%;}
-    75%{--middle-point: 35%;}
+    75% {--middle-point: 35%;}
     80% {--middle-point: 42%;}
-    85%{--middle-point: 49%;}
-    90%{--middle-point: 56%;}
-    95%{--middle-point: 63%;}
-    100% {
+    85% {--middle-point: 49%;}
+    90% {--middle-point: 56%;}
+    95% {--middle-point: 63%;}
+    100%{
         --middle-point: 70%;
         --grey: orange;
         --white: yellow;
@@ -148,8 +145,6 @@ a {
             transition: all 0.3s;
 
             &:hover {
-                background-color: var(--black);
-                color: var(--white);
                 outline-offset: 2rem;
                 outline-color: var(--white);
             }
@@ -203,11 +198,11 @@ a {
         z-index: 1;
     }
     &:before {
-        background: linear-gradient(var(--black), transparent);
+        background: linear-gradient(var(--black), 20% , transparent);
         top: 0;
     }
     &:after {
-        background: linear-gradient(transparent, var(--black), );
+        background: linear-gradient(transparent, 80% , var(--black));
         bottom: 0;
     }
 }
