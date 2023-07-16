@@ -552,6 +552,9 @@ a {
             height: 7rem;
             padding: 1.5rem;
         }
+        p {
+            padding: 0.5rem 1rem;
+        }
     }
 }
 
@@ -563,11 +566,11 @@ a {
 
 @media (max-width:500px) {
     #welcome_section {
-        grid-template-columns: 1fr 5rem;
+        grid-template-columns: 1fr 7rem !important;
         #skills_carousel {
             svg {
-                width: 5rem;
-                height: 5rem;
+                width: 7rem;
+                height: 7rem;
                 padding: 1rem;
             }
         }
