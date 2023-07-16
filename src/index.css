@@ -182,7 +182,9 @@ a {
 }
 
 #welcome_section {
-  height: clamp(25rem, 100dvh, 100rem);
+  height: 100vh;
+  min-height: 25rem;
+  max-height: 100rem;
   padding: 5rem;
   display: grid;
   grid-template-columns: max-content 1fr 10rem;
