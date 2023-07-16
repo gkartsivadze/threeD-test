@@ -510,11 +510,11 @@ a {
 
 @media (max-width:500px) {
     #welcome_section {
-        grid-template-columns: 1fr 7rem !important;
+        grid-template-columns: 1fr 5rem !important;
         #skills_carousel {
             svg {
-                width: 7rem;
-                height: 7rem;
+                width: 5rem;
+                height: 5rem;
                 padding: 1rem;
             }
         }
